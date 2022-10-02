@@ -30,17 +30,23 @@
     <main>
         <div class="loginArea">
             <h2>Welcome to PostIt!</h2>
-            <p>Please log in:</p>
-            <form action="" method="get" id="loginform">
-                <input type="email" pattern=".+@.+\..+" placeholder="Email" required>
-                <br>
-                <input type="password" placeholder="Password" required>
+            <form>
+                <div class="form-field">
+                    <input type="text" name="" required="">
+                    <label>Username</label>
+                </div>
+                <div class="form-field">
+                    <input type="password" name="" required="">
+                    <label>Password</label>
+                    <a id="forgot-password" href="#">Forgot password</a>
+                </div>
+                <div class="form-buttons">
+                    <a href="#">Log in</a>
+                    <span>or</span>
+                    
+                    <a href="#">Sign up</a>
+                </div>
             </form>
-            <a href="">Forgot password</a>
-            <div class="buttons">
-                <button type="button">Create an account</button>
-                <button type="submit" form="loginform" onsubmit="window.location.replace('index.html')">Log in</button>
-            </div>
         </div>
     </main>
     <footer>
