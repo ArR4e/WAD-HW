@@ -26,6 +26,7 @@ header {
     top: 0;
     width: 100%;
     background: var(--navc);
+    z-index: 1;
 }
 
 
