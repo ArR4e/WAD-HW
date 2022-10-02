@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,8 +8,9 @@
     <link rel="stylesheet" href="post.css">
     <title>MAN</title>
 </head>
+
 <body>
-       <header>
+    <header>
         <p class="teamName">
             MANSpace
         </p>
@@ -20,13 +22,27 @@
         <img id="icon" src="res/LogoUTimproved.png" alt="Logo">
     </header>
     <main>
-        <div class="postArea">
-            <label for=""></label><input type="text">
-            <label for=""></label><input type="text">
-            <input type="text">
+        <div class="addPost">
+            <div class="postbody">
+                <p class="postbodytext">Post body</p>
+                <textarea class="textarea" id="postbody" placeholder="textarea" rows="5" cols="15"></textarea>
+            </div>
+            <br>
+            <label class="selectfile">Select file</label>
+            <button class="choosefile" type="button"> 
+                Choose File
+            </button>
+            <br>
+            <br>
+            <div class="createpost">
+                <button class="buttontocreate" type="button">
+                    Create post
+                </button>
+            </div>
         </div>
-    </main> 
+    </main>
     <footer>
     </footer>
 </body>
+
 </html>
