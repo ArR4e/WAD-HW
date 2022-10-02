@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;1,700&display=swap');
+
+html {
+    height: 100%;
+    font-family: 'Roboto', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    --bgc: #F5F5F5;
+    --navc: #BEBEBE;
+    --acc: #545454;
+    --fooc: #545454;
+    --postc: #D8D8D8;
+}
+header {
+    display: flex;
+    justify-content: flex-end;
+    text-align: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+
+    z-index: 1;
+    width: 100%;
+    padding: 0.5% 2%;
+    background: var(--navc);
+}
+
+nav {
+    background: var(--navc);
+}
+
+
+
+nav a {
+    font-weight: 500;
+    font-size: 1.8em;
+    text-decoration: none;
+    padding-block: 0.56em;
+    padding-inline: 0.4em;
+    transition: 2ms; 
+}
+
+#icon {
+    height: 3.5rem;
+    cursor: pointer;
+    margin-left: 20px;
+    border-radius: 50%;
+}
+
+.teamName {
+    margin-right: auto;
+    font-weight: 700;
+    font-size: 2em;
+    font-style: italic;
+}
+
+@media screen and (max-width : 400px) {
+    .teamName {
+        display: none;
+    }
+
+    header {
+        justify-content: space-between;
+    }
+}
+
+nav>ul {
+    list-style: none;
+}
+
+nav>ul li {
+    display: inline-block;
+    /* padding: 0px 20px; */
+}
+
+
+nav li a {
+    color: black;
+    transition: all 0.3s ease 0s;
+}
+
+nav ul li a:hover {
+    background-color: var(--acc);
+    color: white;
+}
+
+nav ul li a:active {
+    color: inherit;
+}
