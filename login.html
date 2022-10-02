@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="login.css">
+    <title>MAN</title>
+</head>
+
+<body>
+    <header>
+        <p class="teamName">
+            MANSpace
+        </p>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+            </ul>
+        </nav>
+        <img id="icon" src="res/LogoUTimproved.png" alt="Logo">
+    </header>
+    <main>
+        <div class="loginArea">
+            <h2>Welcome to PostIt!</h2>
+            <p>Please log in:</p>
+            <form action="" method="get" id="loginform">
+                <input type="email" pattern=".+@.+\..+" placeholder="Email" required>
+                <br>
+                <input type="password" placeholder="Password" required>
+            </form>
+            <a href="">Forgot password</a>
+            <div class="buttons">
+                <button type="button">Create an account</button>
+            <button type="submit" form="loginform" onsubmit="window.location.replace('index.html')">Log in</button>
+            </div>
+        </div>
+    </main>
+    <footer>
+    </footer>
+</body>
+
+</html>
