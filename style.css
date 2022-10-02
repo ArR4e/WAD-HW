@@ -10,10 +10,14 @@ html {
     margin: 0;
     padding: 0;
     --bgc: #F5F5F5;
-    --navc: #BEBEBE;
+    --navc: rgba(0,0,0,.5);
     --acc: #545454;
     --fooc: #545454;
     --postc: #D8D8D8;
+}
+
+body {
+    background: linear-gradient(#141e30, #243b55);
 }
 
 main {
