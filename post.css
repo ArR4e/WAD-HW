@@ -10,13 +10,14 @@ html {
     margin: 0;
     padding: 0;
     --bgc: linear-gradient(#141e30, #243b55);
-    --navc: rgba(0,0,0,.5);
+    --navc: rgba(0, 0, 0, .5);
     --acc: #545454;
     --fooc: #545454;
     --postc: #D8D8D8;
 }
 
 body {
+    height: 100%;
     background-color: var(--bgc);
 }
 
@@ -46,7 +47,7 @@ nav a {
     text-decoration: none;
     padding-block: 0.56em;
     padding-inline: 0.4em;
-    transition: 2ms; 
+    transition: 2ms;
 }
 
 #icon {
@@ -95,4 +96,57 @@ nav ul li a:hover {
 
 nav ul li a:active {
     color: inherit;
+}
+
+.postbody {
+    display: flex;
+    margin-right: 10px;
+    margin-left: 10x;
+    margin-top: 20px;
+}
+
+.postbodytext {
+    margin-left: 10px;
+}
+
+.postbody::placeholder {
+    top: 0;
+}
+
+.choosefile {
+    background-color: gray;
+    color: whitesmoke;
+}
+
+.selectfile {
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.buttontocreate {
+    background-color: #212591;
+    color: whitesmoke;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.addPost {
+    background-color: #e3e1e1;
+}
+
+main {
+    min-height: 100%;
+    display: grid;
+    place-content: center;
+    align-items: center;
+    place-items: center;
+}
+
+.createpost{
+    text-align: center;
+}
+
+.textarea{
+    margin-right: 10px;
+    margin-left: 10px;
 }
