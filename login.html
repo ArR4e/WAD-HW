@@ -11,15 +11,21 @@
 
 <body>
     <header>
-        <p class="teamName">
-            MANSpace
-        </p>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-            </ul>
-        </nav>
-        <img id="icon" src="res/LogoUTimproved.png" alt="Logo">
+        <div class="inner-container">
+            <div class="site-branding">
+                <p class="teamName">MANSpace</p>
+            </div>
+
+            <div class="site-nav">
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                    </ul>
+                </nav>
+                <img id="icon" src="res/LogoUTimproved.png" alt="Logo">
+            </div>
+
+        </div>
     </header>
     <main>
         <div class="loginArea">
@@ -33,7 +39,7 @@
             <a href="">Forgot password</a>
             <div class="buttons">
                 <button type="button">Create an account</button>
-            <button type="submit" form="loginform" onsubmit="window.location.replace('index.html')">Log in</button>
+                <button type="submit" form="loginform" onsubmit="window.location.replace('index.html')">Log in</button>
             </div>
         </div>
     </main>
