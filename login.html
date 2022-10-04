@@ -28,12 +28,13 @@
         </div>
     </header>
     <main>
-        <div class="loginArea">
+        <div class="formArea">
             <h2>Welcome to PostIt!</h2>
-            <form>
+            <form action="index.html">
                 <div class="form-field">
-                    <input type="text" name="" required="">
-                    <label>Username</label>
+                    <!-- Pattern for RFC compliant emails -->
+                    <input type="text" name="" required="" pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\i">
+                    <label>Email</label>
                 </div>
                 <div class="form-field">
                     <input type="password" name="" required="">
@@ -41,9 +42,8 @@
                     <a id="forgot-password" href="#">Forgot password</a>
                 </div>
                 <div class="form-buttons">
-                    <a href="#">Log in</a>
+                    <button type="submit">Log in</button>
                     <span>or</span>
-                    
                     <a href="#">Sign up</a>
                 </div>
             </form>

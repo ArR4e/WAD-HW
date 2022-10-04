@@ -15,7 +15,6 @@
             <div class="site-branding">
                 <p class="teamName">MANSpace</p>
             </div>
-
             <div class="site-nav">
                 <nav>
                     <ul>
@@ -28,23 +27,20 @@
         </div>
     </header>
     <main>
-        <div class="addPost">
-            <div class="postbody">
-                <p class="postbodytext">Post body</p>
-                <textarea class="textarea" id="postbody" placeholder="textarea" rows="5" cols="15"></textarea>
-            </div>
-            <br>
-            <label class="selectfile">Select file</label>
-            <button class="choosefile" type="button"> 
-                Choose File
-            </button>
-            <br>
-            <br>
-            <div class="createpost">
-                <button class="buttontocreate" type="button">
-                    Create post
-                </button>
-            </div>
+        <div class="formArea">
+            <form action="index.html">
+                <div class="form-field">
+                    <textarea class="textarea" placeholder="&nbsp;" id="postbody"></textarea>
+                    <label>Post body</label>
+                </div>
+                <div class="form-field">
+                    <p>Select file</p>
+                    <a href="#">Choose File</a>
+                </div>
+                <div class="form-buttons">
+                    <button type="submit">Create post</button>
+                </div>
+            </form>
         </div>
     </main>
     <footer>
