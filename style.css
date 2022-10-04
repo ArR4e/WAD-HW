@@ -53,7 +53,7 @@ header .inner-container .site-nav {
     height: 100%;
 }
 
-nav>ul {
+nav > ul {
     list-style: none;
 }
 
@@ -244,6 +244,7 @@ input[class="activator"]:checked~.inactive-like {
 }
 
 label[class="like"] {
+    cursor: pointer;
     opacity: 0;
 }
 
