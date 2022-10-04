@@ -5,6 +5,10 @@ html {
     font-family: 'Roboto', sans-serif;
 }
 
+button {
+    font-family: 'Roboto', sans-serif;
+}
+
 * {
     box-sizing: border-box;
     color: #fff;
@@ -20,7 +24,7 @@ html {
 body {
     margin-top: 60px;
     background-image: var(--bgc);
-    height: calc(100% - 120px);
+    height: calc(100% - 60px);
 }
 
 header {
@@ -51,10 +55,9 @@ header .inner-container .site-nav {
     height: 100%;
 }
 
-nav>ul {
+header .site-nav>ul{
     list-style: none;
 }
-
 
 header .site-nav ul,
 header .site-nav ul li {
@@ -88,7 +91,6 @@ header .site-nav ul li a:active {
     color: inherit;
 }
 
-
 .teamName {
     margin-right: auto;
     font-weight: 700;
@@ -111,39 +113,6 @@ header .site-nav ul li a:active {
     }
 }
 
-
-.postbody {
-    display: flex;
-    margin-right: 10px;
-    margin-left: 10x;
-    margin-top: 20px;
-}
-
-.postbodytext {
-    margin-left: 10px;
-}
-
-.postbody::placeholder {
-    top: 0;
-}
-
-.choosefile {
-    background-color: gray;
-    color: whitesmoke;
-}
-
-.selectfile {
-    margin-right: 10px;
-    margin-left: 10px;
-}
-
-.buttontocreate {
-    background-color: #212591;
-    color: whitesmoke;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
 .formArea {
     background: rgba(0, 0, 0, .5);
     box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
@@ -157,10 +126,6 @@ main {
     place-content: center;
     align-items: center;
     place-items: center;
-}
-
-.createpost{
-    text-align: center;
 }
 
 .formArea .form-field {
@@ -203,4 +168,58 @@ main {
     left: 0;
     color: #03e9f4;
     font-size: 12px;
+}
+
+.formArea form .form-field{
+    display: flex;
+    align-items: center;
+}
+
+.formArea form .form-field a, .formArea form .form-buttons button{
+    position: relative;
+    display: inline-block;
+    padding: 10px 10px;
+    font-weight: 500;
+    color: #03e9f4;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: .5s;
+    letter-spacing: 2px;
+}
+
+.formArea form .form-buttons button {
+    border: none;
+    background-color: transparent;
+}
+
+.formArea form .form-field:nth-child(2) p {
+    margin-right: 5px;
+}
+
+.formArea form .form-field a:hover {
+    background: #03e9f4;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #03e9f4,
+        0 0 25px #03e9f4,
+        0 0 50px #03e9f4,
+        0 0 100px #03e9f4;
+}
+
+.formArea form .form-buttons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.formArea form .form-buttons button:hover {
+    background: #03e9f4;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #03e9f4,
+        0 0 25px #03e9f4,
+        0 0 50px #03e9f4,
+        0 0 100px #03e9f4;
 }
