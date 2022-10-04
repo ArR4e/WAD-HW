@@ -5,6 +5,10 @@ html {
     font-family: 'Roboto', sans-serif;
 }
 
+button{
+    font-family: 'Roboto', sans-serif;
+}
+
 * {
     box-sizing: border-box;
     color: #fff;
@@ -20,7 +24,7 @@ html {
 body {
     margin-top: 60px;
     background-image: var(--bgc);
-    height: calc(100% - 120px);
+    height: calc(100% - 60px);
 }
 
 header {
@@ -51,10 +55,9 @@ header .inner-container .site-nav {
     height: 100%;
 }
 
-nav>ul {
+header .site-nav>ul{
     list-style: none;
 }
-
 
 header .site-nav ul,
 header .site-nav ul li {
@@ -161,8 +164,8 @@ main {
     color: var(--acc);
 }
 
-.formArea .form-field input:focus~label,
-.formArea .form-field input:valid~label {
+.formArea .form-field input:focus+label,
+.formArea .form-field input:valid+label {
     top: -20px;
     left: 0;
     color: #03e9f4;
@@ -228,41 +231,3 @@ main {
     top: 50%;
     margin-left: 5px;
 }
-
-
-
-
-/* 
-footer {
-    height: 5rem;
-    margin-top: auto;
-    background-color: var(--fooc);
-}
-
-button {
-    text-decoration: none;
-    color: white;
-    font-weight: 700;
-    padding: 0.5em 1.25em;
-    border-radius: 0.125em;
-    border-width: 1px;
-    background: var(--acc);
-    transition: 0.5s;
-}
-
-.formArea{
-    background-color: var(--postc);
-    height: 30vh;
-    width: 25vw;
-    box-shadow: 5px 5px 15px 0px rgba(0, 0, 0, .7);
-}
-button:hover{
-    background: var(--bgc);
-    color: var(--acc);
-}
-
-@media screen and (max-width: 400px) {
-    .buttons {
-        flex-direction: column-reverse;
-    }
-} */
