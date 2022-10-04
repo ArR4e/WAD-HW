@@ -144,8 +144,11 @@ header .site-nav ul li a:active {
     margin-bottom: 20px;
 }
 
-.addPost {
-    background-color: #e3e1e1;
+.formArea {
+    background: rgba(0, 0, 0, .5);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
+    padding: 40px;
+    max-width: 400px;
 }
 
 main {
@@ -160,7 +163,44 @@ main {
     text-align: center;
 }
 
-.textarea{
-    margin-right: 10px;
-    margin-left: 10px;
+.formArea .form-field {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.formArea .form-field textarea {
+    width: 100%;
+    padding: 10px 0;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
+    transition: 0.5s;
+    margin-top: 10px;
+    height: 76px;
+    overflow: hidden;
+}
+
+.formArea .form-field textarea:placeholder-shown{
+    height: 36px;
+    margin-top: 0;
+}
+
+.formArea .form-field label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.formArea .form-field textarea:not(:placeholder-shown)~label,
+.formArea .form-field textarea:focus~label {
+    top: -20px;
+    left: 0;
+    color: #03e9f4;
+    font-size: 12px;
 }

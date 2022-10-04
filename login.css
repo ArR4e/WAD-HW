@@ -118,24 +118,24 @@ main {
     height: 100%;
 }
 
-.loginArea {
+.formArea {
     background: rgba(0, 0, 0, .5);
     box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
     padding: 40px;
-    width: 400px;
+    max-width: 400px;
 }
 
-.loginArea h2 {
+.formArea h2 {
     text-align: center;
     margin-bottom: 30px;
 }
 
-.loginArea .form-field {
+.formArea .form-field {
     position: relative;
     margin-bottom: 30px;
 }
 
-.loginArea .form-field input {
+.formArea .form-field input {
     width: 100%;
     padding: 10px 0;
     border: none;
@@ -144,7 +144,7 @@ main {
     background: transparent;
 }
 
-.loginArea .form-field label {
+.formArea .form-field label {
     position: absolute;
     top: 0;
     left: 0;
@@ -154,28 +154,28 @@ main {
     pointer-events: none;
     transition: .5s;
 }
-.loginArea #forgot-password{
+.formArea #forgot-password{
     margin-top: 5px;
     text-decoration: none;
     font-size: 12px;
     color: var(--acc);
 }
 
-.loginArea .form-field input:focus~label,
-.loginArea .form-field input:valid~label {
+.formArea .form-field input:focus~label,
+.formArea .form-field input:valid~label {
     top: -20px;
     left: 0;
     color: #03e9f4;
     font-size: 12px;
 }
 
-.loginArea form .form-buttons{
+.formArea form .form-buttons{
     display: flex;
     align-items: center;
     flex-direction: column;
 }
 
-.loginArea form .form-buttons a {
+.formArea form .form-buttons a {
     position: relative;
     display: inline-block;
     padding: 10px 20px;
@@ -189,11 +189,11 @@ main {
     letter-spacing: 4px;
     margin-top: 20px;
 }
-.loginArea form .form-buttons a:last-child{
+.formArea form .form-buttons a:last-child{
     margin-top: 0;
 }
 
-.loginArea form .form-buttons a:hover {
+.formArea form .form-buttons a:hover {
     background: #03e9f4;
     color: #fff;
     border-radius: 5px;
@@ -203,10 +203,10 @@ main {
         0 0 100px #03e9f4;
 }
 
-.loginArea form .form-buttons span{
+.formArea form .form-buttons span{
     position: relative;
 }
-.loginArea form .form-buttons span::before{
+.formArea form .form-buttons span::before{
     position: absolute;
     content: "";
     width: 30px;
@@ -216,7 +216,7 @@ main {
     right: 100%;
     margin-right: 5px;
 }
-.loginArea form .form-buttons span::after{
+.formArea form .form-buttons span::after{
     position: absolute;
     content: "";
     width: 30px;
@@ -247,7 +247,7 @@ button {
     transition: 0.5s;
 }
 
-.loginArea{
+.formArea{
     background-color: var(--postc);
     height: 30vh;
     width: 25vw;
