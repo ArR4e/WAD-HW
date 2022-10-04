@@ -15,7 +15,7 @@ html {
     --fooc: #545454;
     --postc: var(--navc);
     --posttxt: #fff;
-    --postSec: var(#fff);
+    --postSec: #fff;
 }
 
 body {
