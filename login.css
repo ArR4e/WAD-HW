@@ -175,7 +175,7 @@ main {
     flex-direction: column;
 }
 
-.formArea form .form-buttons a {
+.formArea form .form-buttons a, .formArea form .form-buttons button {
     position: relative;
     display: inline-block;
     padding: 10px 20px;
@@ -188,12 +188,15 @@ main {
     transition: .5s;
     letter-spacing: 4px;
     margin-top: 20px;
+    border: none;
+    background-color: transparent;
 }
-.formArea form .form-buttons a:last-child{
+
+.formArea form .form-buttons a{
     margin-top: 0;
 }
 
-.formArea form .form-buttons a:hover {
+.formArea form .form-buttons a:hover, .formArea form .form-buttons button:hover {
     background: #03e9f4;
     color: #fff;
     border-radius: 5px;
