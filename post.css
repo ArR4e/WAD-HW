@@ -11,7 +11,7 @@ html {
     margin: 0;
     padding: 0;
     --bgc: linear-gradient(#141e30, #243b55);
-    --navc: rgba(0, 0, 0, .5);
+    --navc: #0a0f18;
     --acc: #03e9f4;
     --fooc: #545454;
     --postc: #D8D8D8;
