@@ -115,7 +115,6 @@ header .site-nav ul li a:active {
 }
 
 
-
 main {
     margin-top: 60px;
     margin-inline: 25%;
@@ -142,16 +141,16 @@ main {
 
 .postNoImg {
     grid-template-areas:
-        "z d d d f f y"
-        "z g g g f f y"
-        "z g g g b b y"
-        "z u u r r p y";
+        "z d d d d d f f y"
+        "z g g g g g f f y"
+        "z g g g g g b b y"
+        "z u u u _ r r p y";
     grid-template-rows: repeat(4, 5.25vw);
-    grid-template-columns: 1px repeat(5, 1fr) 1px;
+    grid-template-columns: 1px repeat(7, 1fr) 1px;
     grid-gap: 1vw;
 }
 
-.postNoImg .postMsg{
+.postNoImg .postMsg {
     grid-area: g;
 }
 
@@ -207,20 +206,20 @@ main {
 }
 
 .author {
-	grid-area: r;
-	display: flex;
-	align-items: center;
-	font-size: 1.1em;
-	justify-content: center;
-	position: relative;
-	margin-top: 10%;
-	margin-left: 10%;
-	margin: 10%;
-	background-color: var(--postSec);
-	border-radius: 0px;
-	border-top: 2px solid var(--acc);
-	border-bottom: 2px solid var(--acc);
-	background: transparent;
+    grid-area: r;
+    display: flex;
+    align-items: center;
+    font-size: 1.1em;
+    justify-content: center;
+    position: relative;
+    margin-top: 10%;
+    margin-left: 10%;
+    margin: 10%;
+    background-color: var(--postSec);
+    border-radius: 0px;
+    border-top: 2px solid var(--acc);
+    border-bottom: 2px solid var(--acc);
+    background: transparent;
 }
 
 .author p {
@@ -239,7 +238,7 @@ input[class="activator"] {
     display: none;
 }
 
-input[class="activator"]:checked~.inactive-like {
+input[class="activator"]:checked ~ .inactive-like {
     display: none;
 }
 
@@ -260,15 +259,16 @@ label[class="like"] {
 
     .post {
         grid-template-rows: repeat(5, 9vw);
-        grid-template-columns: 1px repeat(7, 1fr) 1px;
+        /*grid-template-columns: 1px repeat(7, 1fr) 1px;*/
         font-size: 1.5vw;
     }
 
     .postNoImg {
         grid-template-rows: repeat(4, 13.5vw);
-        grid-template-columns: 1px repeat(5, 1fr) 1px;
+        /*grid-template-columns: 1px repeat(7, 1fr) 1px;*/
 
     }
+
 
     .postImg {
         transform: translateY(-10vw);
@@ -280,6 +280,10 @@ label[class="like"] {
 
     .like {
         font-size: 3em;
+    }
+
+    .postNoImg .day {
+        top: 53%;
     }
 
     .author {

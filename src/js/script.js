@@ -12,11 +12,18 @@ const monthNames = {
     "11": "Nov",
     "12": "Dec"
 };
+const processName = name => {
+    if (name.length < 19) {
+        return name;
+    }
+    let [firstName, surname] = name.split(" ");
+
+}
 let id = 0;
 window.onload = function () {
-    // Online end-point
+    // Online end-point, end-point for editing: https://www.npoint.io/docs/4b5b3e741dc8ddfe03d8
     let loc = 'https://api.npoint.io/4b5b3e741dc8ddfe03d8';
-    // json from local storage
+    // json from local storage, comment-out to check out, online end-point
     loc = 'res/json/posts.json';
     fetch(loc)
         .then(response => response.json())
