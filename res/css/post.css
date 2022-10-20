@@ -127,7 +127,7 @@ main {
     align-items: center;
     place-items: center;
 }
-
+/*TODO: Probably set resize to none*/
 .formArea .form-field {
     position: relative;
     margin-bottom: 30px;

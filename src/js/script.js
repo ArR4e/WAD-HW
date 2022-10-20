@@ -12,12 +12,19 @@ const monthNames = {
     "11": "Nov",
     "12": "Dec"
 };
+const processName = name => {
+    if (name.length < 19) {
+        return name;
+    }
+    let [firstName, surname] = name.split(" ");
+
+}
 let id = 0;
 window.onload = function () {
-    // Online end-point
+    // Online end-point, end-point for editing: https://www.npoint.io/docs/4b5b3e741dc8ddfe03d8
     let loc = 'https://api.npoint.io/4b5b3e741dc8ddfe03d8';
-    // json from local storage
-    loc = 'res/json/posts.json';
+    // json from local storage, comment-out to check out, online end-point
+    loc = 'res/jsn/posts.json';
     fetch(loc)
         .then(response => response.json())
         .then(json => {
@@ -90,13 +97,12 @@ window.onload = function () {
         let posts = document.getElementById("posts");
         let post = document.createElement("div");
         post.style = "place-items: center;";
-        post.className = "post postNoImg";
+        post.className = "post";
         let errorMessage = document.createElement('h1');
         errorMessage.className = "postMsg";
-        // g/g from row g to row g
-        // g/f from column g to column f
-        // errorMessage.setAttribute("style", "grid-row: g / g; grid-column: g / f; !important");
-        errorMessage.style = "grid-row: g / g; grid-column: g / f; !important";
+        //TODO: fix the footer
+        // a/a/u/d from row a, column a to row u, column d
+        errorMessage.style = "grid-area: a / a / u / d;";
         // 'Occured error while loading data:' and error message together
         errorMessage.innerText = `An error occurred while loading data:\n\n${error}`;
         post.append(errorMessage);
