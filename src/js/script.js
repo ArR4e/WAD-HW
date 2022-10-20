@@ -14,8 +14,10 @@ const monthNames = {
 };
 let id = 0;
 window.onload = function () {
+    // Online end-point
     let loc = 'https://api.npoint.io/4b5b3e741dc8ddfe03d8';
-    // loc = 'https://jsonplaceholder.typicode.com/posts'
+    // json from local storage
+    loc = 'res/json/posts.json';
     fetch(loc)
         .then(response => response.json())
         .then(json => {
@@ -28,7 +30,7 @@ window.onload = function () {
                     if (postObject.picture) {
                         let picture = document.createElement("div");
                         //TODO add pic
-                        picture.style = `background-image: url('${postObject.picture}')`;
+                        picture.style = `background-image: url('${postObject.picture}');`;
                         picture.className = "postImg";
                         post.append(picture);
                     } else {
@@ -84,32 +86,20 @@ window.onload = function () {
 
                     posts.append(post);
                 })
-        });
+        }).catch(error => {
+        let posts = document.getElementById("posts");
+        let post = document.createElement("div");
+        post.style = "place-items: center;";
+        post.className = "post postNoImg";
+        let errorMessage = document.createElement('h1');
+        errorMessage.className = "postMsg";
+        // g/g from row g to row g
+        // g/f from column g to column f
+        // errorMessage.setAttribute("style", "grid-row: g / g; grid-column: g / f; !important");
+        errorMessage.style = "grid-row: g / g; grid-column: g / f; !important";
+        // 'Occured error while loading data:' and error message together
+        errorMessage.innerText = `An error occurred while loading data:\n\n${error}`;
+        post.append(errorMessage);
+        posts.append(post);
+    })
 }
-// <div class="post">
-//             <div id="cs" class="postImg"></div>
-//             <h1 class="postMsg">I prefer chillin' at home</h1>
-//             <div class="author">
-//                 <p>by Mykyta Voievudskyi</p>
-//             </div>
-//             <h5 class="day">02</h5>
-//             <h6 class="mon-year">Oct 2022</h6>
-//             <!-- Checkbox hack -->
-//             <input type="checkbox" id="activator4" class="activator">
-//             <p class="like active-like">❤️️</p>
-//             <p class="like inactive-like">🤍</p>
-//             <label for="activator4" class="like">🤍</label>
-
-//         <div class="post postNoImg">
-//             <h1 class="postMsg">I like this way of chillin'!</h1>
-//             <div class="author">
-//                 <p>by Nikita Kislõi</p>
-//             </div>
-//             <h5 class="day">02</h5>
-//             <h6 class="mon-year">Oct 2022</h6>
-//             <!-- Checkbox hack -->
-//             <input type="checkbox" id="activator5" class="activator">
-//             <p class="like active-like">❤️️</p>
-//             <p class="like inactive-like">🤍</p>
-//             <label for="activator5" class="like">🤍</label>
-//         </div>
