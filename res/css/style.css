@@ -166,15 +166,15 @@ main {
 }
 
 #vs {
-    background-image: url("res/bestEditor.png");
+    background-image: url("../bestEditor.png");
 }
 
 #cs {
-    background-image: url("res/cs.png");
+    background-image: url("../cs.png");
 }
 
 #np {
-    background-image: url("res/nicePic.png");
+    background-image: url("../nicePic.png");
 }
 
 .postMsg {
