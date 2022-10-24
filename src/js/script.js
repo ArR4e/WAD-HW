@@ -109,3 +109,8 @@ window.onload = function () {
         posts.append(post);
     })
 }
+image = document.getElementById("icon");
+dropdown = document.getElementById("dropdown");
+image.addEventListener('click', () => {
+    dropdown.classList.toggle("closed");
+})
