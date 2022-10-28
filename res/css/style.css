@@ -164,17 +164,6 @@ main {
     background-size: 100% 100%;
 }
 
-#vs {
-    background-image: url("../bestEditor.png");
-}
-
-#cs {
-    background-image: url("../cs.png");
-}
-
-#np {
-    background-image: url("../nicePic.png");
-}
 
 .postMsg {
     grid-row-start: g;

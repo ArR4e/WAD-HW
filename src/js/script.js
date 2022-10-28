@@ -26,7 +26,10 @@ window.onload = function () {
     // json from local storage, comment-out to check out, online end-point
     loc = 'res/json/posts.json';
     fetch(loc)
-        .then(response => response.json())
+        .then(response => {
+            console.log(response)
+            return response.json()
+        })
         .then(json => {
             let posts = document.getElementById("posts");
             json.forEach(
