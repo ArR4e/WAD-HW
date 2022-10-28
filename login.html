@@ -6,27 +6,41 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="res/css/login.css">
+    <link rel="stylesheet" href="res/css/dropdown.css">
     <title>MAN</title>
 </head>
 
 <body>
-    <header>
-        <div class="inner-container">
-            <div class="site-branding">
-                <p class="teamName">MANSpace</p>
-            </div>
-
-            <div class="site-nav">
-                <nav>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                    </ul>
-                </nav>
-                <img id="icon" src="res/LogoUTimproved.png" alt="Logo">
-            </div>
-
+<header>
+    <div class="inner-container">
+        <div class="site-branding">
+            <p class="teamName">MANSpace</p>
         </div>
-    </header>
+
+        <div class="site-nav">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="addPost.html">Add Post</a></li>
+                </ul>
+            </nav>
+            <img id="icon" src="res/LogoUTimproved.png" alt="Logo">
+        </div>
+        <div id="dropdown" class="dropdown closed">
+            <div class="inner-container">
+                <ul>
+                    <li>John Doe</li>
+                    <li>john.doe@ut.ee</li>
+                    <li>Logout</li>
+                </ul>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+</header>
     <main>
         <div class="formArea">
             <h2>Welcome to PostIt!</h2>
@@ -52,5 +66,11 @@
     <footer>
     </footer>
 </body>
-
+<script>
+    image = document.getElementById("icon");
+    dropdown = document.getElementById("dropdown");
+    image.addEventListener('click', () => {
+        dropdown.classList.toggle("closed");
+    })
+</script>
 </html>

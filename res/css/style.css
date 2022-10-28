@@ -21,6 +21,9 @@ html {
 body {
     background-image: var(--bgc);
 }
+.closed{
+    display: none;
+}
 
 header {
     position: fixed;
@@ -31,8 +34,7 @@ header {
     z-index: 1;
 }
 
-
-header .inner-container {
+header > .inner-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -40,7 +42,7 @@ header .inner-container {
     height: 60px;
 }
 
-header .inner-container .site-nav img {
+header > .inner-container .site-nav img {
     align-self: center;
     height: 100%;
     cursor: pointer;
@@ -48,7 +50,7 @@ header .inner-container .site-nav img {
     margin-left: 10px;
 }
 
-header .inner-container .site-nav {
+header > .inner-container .site-nav {
     display: flex;
     height: 100%;
 }
@@ -58,12 +60,12 @@ nav > ul {
 }
 
 
-header .site-nav ul,
-header .site-nav ul li {
+header .site-nav nav ul,
+header .site-nav nav ul li {
     height: 100%;
 }
 
-header .site-nav ul li {
+header .site-nav nav ul li {
     display: inline-flex;
     align-items: center;
     font-weight: 500;
@@ -72,21 +74,21 @@ header .site-nav ul li {
     transition: .5s;
 }
 
-header .site-nav ul li a {
+header .site-nav nav ul li a {
     text-decoration: none;
     color: #03e9f4;
     transition: .5;
 }
 
-header .site-nav ul li:hover {
+header .site-nav nav ul li:hover {
     background-color: var(--acc);
 }
 
-header .site-nav ul li:hover a {
+header .site-nav nav ul li:hover a {
     color: white;
 }
 
-header .site-nav ul li a:active {
+header .site-nav nav ul li a:active {
     color: inherit;
 }
 
