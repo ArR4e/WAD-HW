@@ -42,6 +42,7 @@ main {
     margin-top: 10px;
     height: 76px;
     overflow: hidden;
+    resize: none;
 }
 
 .formArea .form-field textarea:placeholder-shown{
