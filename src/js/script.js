@@ -12,13 +12,14 @@ const monthNames = {
     "11": "Nov",
     "12": "Dec"
 };
-const processName = name => {
-    if (name.length < 19) {
-        return name;
-    }
-    let [firstName, surname] = name.split(" ");
-
-}
+//Idea for future release
+// const processName = name => {
+//     if (name.length < 19) {
+//         return name;
+//     }
+//     let [firstName, surname] = name.split(" ");
+//
+// }
 let id = 0;
 window.onload = function () {
     // Online end-point, end-point for editing: https://www.npoint.io/docs/4b5b3e741dc8ddfe03d8
