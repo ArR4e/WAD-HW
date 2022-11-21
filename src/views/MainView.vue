@@ -1,13 +1,13 @@
 <template>
   <div class="home">
-    <p>sdasdsadas</p>
     <post v-for="post of posts" :post="post"/>
+    <button @click="resetLikes">Reset likes</button>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import HelloWorld from '@/components/Footer.vue'
 import Post from "@/components/Post";
 
 export default {
@@ -19,6 +19,11 @@ export default {
   computed: {
     posts(){
       return this.$store.getters.posts;
+    }
+  },
+  methods: {
+    resetLikes: function () {
+      this.$store.dispatch("resetLikesAct")
     }
   }
 }
