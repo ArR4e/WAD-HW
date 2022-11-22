@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <post v-for="post of posts" :post="post"/>
+    <post v-for="postid of posts" :postId="postid"/>
     <div id="button-container">
       <button @click="resetLikes">Reset likes</button>
     </div>
@@ -11,6 +11,7 @@
 // @ is an alias to /src
 import HelloWorld from '@/components/Footer.vue'
 import Post from "@/components/Post";
+import { mapActions } from 'vuex'
 
 export default {
   name: 'MainView',
@@ -20,13 +21,12 @@ export default {
   },
   computed: {
     posts(){
-      return this.$store.getters.posts;
+      return this.$store.getters.postIds;
     }
   },
   methods: {
-    resetLikes: function () {
-      this.$store.dispatch("resetLikesAct")
-    }
+    // map `this.resetLikes()` to `this.$store.dispatch('resetLikes')`
+    ...mapActions(['resetLikes'])
   }
 }
 </script>

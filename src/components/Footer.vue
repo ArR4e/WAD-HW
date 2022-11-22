@@ -70,6 +70,7 @@ footer .teamName {
 }
 
 footer #icon{
+  border-radius: 50%;
   max-width: 50px;
   margin-right: 10px;
 }

@@ -9,7 +9,7 @@
     <h6 class="mon-year">{{ monthYear }}</h6>
     <div class="like">
       <p class="like-btn" @click="incrementLike()">{{ post.likes ? '❤️' : '🤍' }}</p>
-      <p class="like-count">{{post.likes}}</p>
+      <p class="like-count">{{ post.likes }}</p>
     </div>
   </div>
 </template>
@@ -17,6 +17,7 @@
 Haha, good joke, Artur! Everyone knows Intellij is lame and real programmers use the editor of all times - nano💪💪💪
 What kind of party are you, folks, talking about??? We have a WAD homework due tomorrow😨😨
 <script>
+
 const monthNames = {
   "01": "Jan",
   "02": "Feb",
@@ -34,9 +35,12 @@ const monthNames = {
 export default {
   name: "Post",
   props: {
-    post: Object
+    postId: Number
   },
   computed: {
+    post() {
+      return this.$store.getters.postById(this.postId);
+    },
     day() {
       return this.post?.date?.split(".")[0]
     },
@@ -46,8 +50,8 @@ export default {
     }
   },
   methods: {
-    incrementLike(){
-      this.post.likes++;
+    incrementLike() {
+      this.$store.dispatch("incrementLike", this.postId)
     }
   }
 
@@ -169,7 +173,7 @@ export default {
   cursor: pointer;
 }
 
-.like-count{
+.like-count {
   font-size: 1.9em;
   text-align: left;
   color: #c4bfbf;
@@ -206,7 +210,7 @@ export default {
     font-size: 3.5em;
   }
 
-  .like-count{
+  .like-count {
     font-size: 3.5em;
   }
 
