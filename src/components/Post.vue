@@ -13,9 +13,7 @@
     </div>
   </div>
 </template>
-//
-Haha, good joke, Artur! Everyone knows Intellij is lame and real programmers use the editor of all times - nano💪💪💪
-What kind of party are you, folks, talking about??? We have a WAD homework due tomorrow😨😨
+
 <script>
 
 const monthNames = {

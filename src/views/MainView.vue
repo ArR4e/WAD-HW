@@ -9,15 +9,13 @@
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/Footer.vue'
 import Post from "@/components/Post";
 import { mapActions } from 'vuex'
 
 export default {
   name: 'MainView',
   components: {
-    Post,
-    HelloWorld
+    Post
   },
   computed: {
     posts(){

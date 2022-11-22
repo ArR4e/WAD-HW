@@ -1,4 +1,4 @@
-# wad-hw-vue
+# WAD-HW
 
 ## Project setup
 ```
