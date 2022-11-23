@@ -1,15 +1,14 @@
 <template>
   <div class="signup">
     <div class="formArea">
-      <form id="validation" @change="checkForm" >
-        <div class="errors" v-if="errors.length">
+      <form id="validation">
+        <div class="errors" v-if="errors">
           <b>Please correct the following error(s):</b>
           <ul>
             <li v-for="error in errors">{{ error }}</li>
           </ul>
         </div>
-        <div class="form-field" >
-          <!-- Pattern for RFC-822 compliant emails -->
+        <div class="form-field">
           <input type="email" name="" placeholder="&nbsp;" required>
           <label>Email</label>
         </div>
@@ -28,8 +27,6 @@
 
 <script>
 // Validation
-import header from "@/components/Header";
-import footer from "@/components/Footer";
 
 export default {
   name: "SignUpView",
@@ -39,8 +36,13 @@ export default {
       password: null
     }
   },
+  watch: {
+    password() {
+      this.checkForm();
+    }
+  },
   methods: {
-    checkForm: function (e) {
+    checkForm: function () {
       this.errors = [];
 
       if (this.password.length < 8) {
@@ -74,8 +76,6 @@ export default {
       if (!this.errors) {
         return true;
       }
-
-      e.preventDefault();
     }
   }
 }
@@ -88,7 +88,7 @@ export default {
   margin-bottom: 3vh;
 }
 
-.errors li{
+.errors li {
   color: #ff7d7d;
 }
 
