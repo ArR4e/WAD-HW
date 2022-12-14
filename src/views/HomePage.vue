@@ -1,10 +1,10 @@
 <template>
   <div class="home">
-    <div id="button-container">
+    <div class="button-container">
       <button @click="logOut">Log out</button>
     </div>
-    <post v-for="post of posts" :post = "post" @click="this.$router.push(`/apost/${post.id}`)"/>
-    <div id="button-container">
+    <post v-for="post of posts" :post="post" @click="this.$router.push(`/apost/${post.id}`)"/>
+    <div class="button-container">
       <button @click="addPost">Add post</button>
       <button @click="deleteAll">Delete all</button>
     </div>
@@ -13,9 +13,7 @@
 
 <script>
 // @ is an alias to /src
-import { mapActions } from 'vuex'
 import Post from "@/components/Post";
-import post from "@/components/Post.vue";
 
 export default {
   name: 'HomePage',
@@ -28,17 +26,17 @@ export default {
   components: {
     Post
   },
-  computed: {
-  },
+  computed: {},
   methods: {
-    post() {
-      return post
-    },
     // map `this.resetLikes()` to `this.$store.dispatch('resetLikes')`
     // ...mapActions(['resetLikes']),
     logOut() {
-      fetch("http://localhost:3000/auth/logout")
-          .then(() => this.$router.push("/login"))
+      fetch("http://localhost:3000/auth/logout", {
+          credentials: 'include', //  Don't forget to specify this if you need cookies
+      })
+          .then(response => response.json())
+          .then(response => console.log(response.Msg))
+          .then(() => this.$router.push("/login"));
     },
     addPost() {
       this.$router.push("/addpost");
@@ -49,10 +47,15 @@ export default {
         headers: {
           "Content-Type": "application/json",
         },
-      })
-          .catch((e) => {
-            console.log(e);
-          });
+      }).then(response => {
+            console.log(response)
+            if (response.status === 200) {
+              this.posts = [];
+            }
+          }
+      ).catch((e) => {
+        console.log(e);
+      });
     }
   },
   mounted() {
@@ -80,12 +83,12 @@ main {
   margin-inline: 25%;
 }
 
-#button-container{
+.button-container {
   margin: 50px 0;
   text-align: center;
 }
 
-#button-container button {
+.button-container button {
   position: relative;
   display: inline-block;
   padding: 10px 20px;
@@ -99,7 +102,8 @@ main {
   cursor: pointer;
   font-family: "Roboto", sans-serif;
 }
-#button-container button:hover{
+
+.button-container button:hover {
   background: #03e9f4;
   color: #fff;
   border-radius: 5px;

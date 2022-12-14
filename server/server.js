@@ -76,7 +76,7 @@ app.post('/auth/signup', async (req, res) => {
             .status(201)
             .cookie('jwt', token, {maxAge: 6000000, httpOnly: true})
             .json({user_id: authUser.rows[0].id})
-            .send;
+            .send();
     } catch (err) {
         console.error(err.message);
         res.status(400).send(err.message);
@@ -103,7 +103,7 @@ app.post('/auth/login', async (req, res) => {
             .status(201)
             .cookie('jwt', token, {maxAge: 6000000, httpOnly: true})
             .json({user_id: user.rows[0].id})
-            .send;
+            .send();
     } catch (error) {
         res.status(401).json({error: error.message});
     }
@@ -112,7 +112,7 @@ app.post('/auth/login', async (req, res) => {
 
 app.get('/auth/logout', (req, res) => {
     console.log('delete jwt request arrived');
-    res.status(202).clearCookie('jwt').json({"Msg": "cookie cleared"}).send
+    res.status(202).clearCookie('jwt').json({"Msg": "cookie cleared"}).send()
 });
 
 //Requests associated with data
@@ -131,7 +131,7 @@ app.delete('/data/posts', async (req, res) => {
     console.log('DELETE request for all posts has arrived');
     try {
         await pool.query("DELETE FROM posts")
-        res.status(200).send;
+        res.status(200).send();
     } catch (error) {
         res.status(401).json({error: error.message});
     }
@@ -154,6 +154,7 @@ app.post('/data/posts', async (req, res) => {
                 year+"-"+month+"-"+day
             ]
         );
+        console.log(newpost.rows[0])
         res.json(newpost.rows[0]);
     } catch (error) {
         res.status(401).json({error: error.message});

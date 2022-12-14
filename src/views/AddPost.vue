@@ -36,7 +36,7 @@ export default {
       }).then(response => response.json())
           .then(newPost => console.log(newPost))
           .then(() => {
-            setTimeout(() => this.$router.push("/"), 200);
+            location.assign("/")
           })
           .catch((e) => {
             console.log(e);

@@ -1,7 +1,7 @@
 <template>
   <div class="about">
     <div class="inner-container">
-      <h1>This is an about page</h1>
+      <h1>This is an contact us page</h1>
       <img id="icon" src="../assets/LogoUTimproved.png" alt="Logo">
     </div>
   </div>

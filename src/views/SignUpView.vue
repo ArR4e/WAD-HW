@@ -63,10 +63,12 @@ export default {
               console.log(data);
               this.$router.push("/");
             })
-            .catch((e) => {
+            .catch(e => {
               console.log(e);
               console.log("error");
             });
+      }else{
+        console.log(this.errors.length)
       }
     },
     checkForm: function () {
