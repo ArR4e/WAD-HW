@@ -141,10 +141,10 @@ app.post('/data/posts', async (req, res) => {
     try {
         const post = req.body;
         const newpost = await pool.query(
-            "INSERT INTO posttable(body, date_created) VALUES ($1, $2) RETURNING*",
+            "INSERT INTO posts(body, date_created) VALUES ($1, $2) RETURNING*",
             [
                 post.body,
-                Date.now() //.toLocaleString()]
+                Date.now()
             ]
         );
         res.json(newpost);
