@@ -5,6 +5,7 @@ import ContactUs from "@/views/ContactUs";
 import LogIn from "@/views/LogIn";
 import AddPost from "@/views/AddPost";
 import APost from "@/views/APost";
+import auth from "@/auth";
 
 const routes = [
   {
@@ -12,7 +13,7 @@ const routes = [
     name: 'home',
     component: MainView,
     beforeEnter: async (to, from, next) => {
-      let authResult = true //await auth.authenticated();
+      let authResult = await auth.authenticated();
       if (!authResult) {
         next("/login");
       } else {
@@ -40,7 +41,7 @@ const routes = [
     name: "APost",
     component: APost,
     beforeEnter: async (to, from, next) => {
-      let authResult = true//await auth.authenticated();
+      let authResult = await auth.authenticated();
       if (!authResult) {
         next("/login");
       } else {
