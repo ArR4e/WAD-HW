@@ -23,7 +23,7 @@
   /*--fooc: #545454;*/
   width: 100%;
   color: #2c3e50;
-  padding-top: 50px;
+  padding-top: 100px;
 }
 
 
