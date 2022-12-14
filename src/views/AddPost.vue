@@ -15,7 +15,6 @@
 </template>
 
 <script>
-import {json} from "express";
 
 export default {
   name: "AddPost",

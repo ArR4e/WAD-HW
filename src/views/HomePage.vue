@@ -42,6 +42,17 @@ export default {
     },
     addPost() {
       this.$router.push("/addpost");
+    },
+    deleteAll() {
+      fetch("http://localhost:3000/data/posts", {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+          .catch((e) => {
+            console.log(e);
+          });
     }
   },
   mounted() {
