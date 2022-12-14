@@ -2,14 +2,14 @@
   <div class="signup">
     <div class="formArea">
       <form id="validation">
-        <div class="errors" v-if="errors">
+        <div class="errors" v-if="errors.length>0">
           <b>Please correct the following error(s):</b>
           <ul>
             <li v-for="error in errors">{{ error }}</li>
           </ul>
         </div>
         <div class="form-field">
-          <input type="email" name="" placeholder="&nbsp;" required>
+          <input type="email" name="" v-model="email" placeholder="&nbsp;" required>
           <label>Email</label>
         </div>
         <div class="form-field">
@@ -32,6 +32,7 @@ export default {
   data() {
     return {
       errors: [],
+      email: null,
       password: null
     }
   },
@@ -41,8 +42,29 @@ export default {
     }
   },
   methods: {
-    signup: function () {
-
+    signup() {
+      let data = {
+        email: this.email,
+        password: this.password
+      };
+      // using Fetch - post method - send an HTTP post request to the specified URI with the defined body
+      fetch("http://localhost:3000/auth/signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: 'include', //  Don't forget to specify this if you need cookies
+        body: JSON.stringify(data),
+      })
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+            this.$router.push("/");
+          })
+          .catch((e) => {
+            console.log(e);
+            console.log("error");
+          });
     },
     checkForm: function () {
       this.errors = [];
