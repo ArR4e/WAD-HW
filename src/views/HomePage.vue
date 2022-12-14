@@ -9,11 +9,11 @@
 
 <script>
 // @ is an alias to /src
-import Post from "@/components/Post";
 import { mapActions } from 'vuex'
+import Post from "@/components/Post";
 
 export default {
-  name: 'MainView',
+  name: 'HomePage',
   components: {
     Post
   },

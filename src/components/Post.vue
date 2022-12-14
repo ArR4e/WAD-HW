@@ -1,16 +1,8 @@
 <template>
-  <div :class="post.picture ? 'post' : 'post postNoImg'">
-    <div v-if="post.picture" class="postImg" :style="`background-image: url(pictures/${post.picture});`"></div>
+  <div class="post postNoImg">
     <h1 class="postMsg" :class="post.postMsg.length > 90 ? 'long-post' : ''">{{ post.postMsg }}</h1>
-    <div class="author">
-      <p>by {{ post.author }}</p>
-    </div>
     <h5 class="day">{{ String(day).padStart(2, '0') }}</h5>
     <h6 class="mon-year">{{ monthYear }}</h6>
-    <div class="like">
-      <p class="like-btn" @click="incrementLike()">{{ post.likes ? '❤️' : '🤍' }}</p>
-      <p class="like-count">{{ post.likes }}</p>
-    </div>
   </div>
 </template>
 
@@ -47,11 +39,7 @@ export default {
       return `${monthNames[month]}  ${year}`
     }
   },
-  methods: {
-    incrementLike() {
-      this.$store.dispatch("incrementLike", this.postId)
-    }
-  }
+  methods: {}
 
 }
 </script>
@@ -63,7 +51,6 @@ export default {
   --posttxt: #fff;
   --postSec: #fff;
 }
-
 
 .post {
   display: grid;
@@ -98,17 +85,6 @@ export default {
   grid-area: g;
 }
 
-
-.postImg {
-  transform: translateY(-6vw);
-  grid-row-start: a;
-  grid-column-start: a;
-  grid-row-end: g;
-  grid-column-end: a;
-  background-size: 100% 100%;
-}
-
-
 .postMsg {
   grid-row-start: g;
   grid-column-start: g;
@@ -138,44 +114,10 @@ export default {
   text-align: center;
 }
 
-.author {
-  grid-area: r;
-  display: flex;
-  align-items: center;
-  font-size: 1.1em;
-  justify-content: center;
-  position: relative;
-  margin-top: 10%;
-  margin-left: 10%;
-  margin: 10%;
-  background-color: var(--postSec);
-  border-radius: 0px;
-  border-top: 2px solid var(--acc);
-  border-bottom: 2px solid var(--acc);
-  background: transparent;
-}
-
 .author p {
   color: var(--posttxt);
 }
 
-.like {
-  margin-top: 1vw;
-  grid-area: p;
-  display: flex;
-  align-items: baseline;
-}
-
-.like-btn {
-  font-size: 1.9em;
-  cursor: pointer;
-}
-
-.like-count {
-  font-size: 1.9em;
-  text-align: left;
-  color: #c4bfbf;
-}
 
 .post:last-of-type {
   margin-bottom: 60px;
@@ -196,32 +138,13 @@ export default {
 
   }
 
-  .postImg {
-    transform: translateY(-10vw);
-  }
-
   .postMsg {
     font-size: 2.5em;
   }
 
-  .like-btn {
-    font-size: 3.5em;
-  }
-
-  .like-count {
-    font-size: 3.5em;
-  }
 
   .postNoImg .day {
     top: 53%;
-  }
-
-  .author {
-    font-size: 1.2em;
-  }
-
-  .long-post {
-    font-size: 2em;
   }
 
 

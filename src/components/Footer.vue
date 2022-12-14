@@ -11,12 +11,15 @@
             <router-link to="/">Home</router-link>
           </li>
           <li>
-            <router-link to="/signup">SignUp</router-link>
+            <router-link to="/signup">Sign Up</router-link>
+          </li>
+          <li>
+            <router-link to="/contactus">Contact Us</router-link>
           </li>
         </ul>
       </div>
       <div class="col col-12">
-        ©{{ new Date().getFullYear() }}<span>&nbsp;All rights reserved</span>
+        ©2022<span>&nbsp;All rights reserved</span>
       </div>
 
 

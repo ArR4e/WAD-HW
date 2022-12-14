@@ -1,5 +1,5 @@
 <template>
-  <div class="signup">
+  <div class="login">
     <div class="formArea">
       <form id="validation">
         <div class="errors" v-if="errors">
@@ -16,8 +16,10 @@
           <input type="password" v-model="password" name="" placeholder="&nbsp;" required :class="errors.length?'invalid':''">
           <label>Password</label>
         </div>
-        <div class="form-buttons" @click="signup()">
-          <a>Sign up</a>
+        <div class="form-buttons">
+          <a @click="login()">Log in</a>
+          <span>or</span>
+          <a @click="this.$router.push('/signup')">Sign up</a>
         </div>
       </form>
     </div>
@@ -27,8 +29,9 @@
 
 <script>
 // Validation
+
 export default {
-  name: "SignUpView",
+  name: "LogInView",
   data() {
     return {
       errors: [],
@@ -41,8 +44,7 @@ export default {
     }
   },
   methods: {
-    signup: function () {
-
+    login: function (){
     },
     checkForm: function () {
       this.errors = [];
@@ -94,7 +96,7 @@ export default {
   color: #ff7d7d;
 }
 
-.signup {
+.login {
   display: grid;
   place-items: center;
   height: 100vh;
