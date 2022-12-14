@@ -7,7 +7,7 @@
           <label>Post body</label>
         </div>
         <div class="form-buttons">
-          <button type="submit">Create post</button>
+          <button @click="addPost" type="submit">Create post</button>
         </div>
       </form>
     </div>
@@ -27,7 +27,7 @@ export default {
   },
   methods: {
     addPost() {
-      fetch("http://localhost:3000/data/", {
+      fetch("http://localhost:3000/data/posts", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -43,6 +43,7 @@ export default {
     }
   }
 }
+
 </script>
 
 <style scoped>
