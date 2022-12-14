@@ -1,8 +1,12 @@
 <template>
   <div class="home">
-    <post v-for="postid of posts" :postId="postid"/>
     <div id="button-container">
-      <button @click="resetLikes">Reset likes</button>
+      <button @click="logOut">Log out</button>
+    </div>
+    <post v-for="post of posts" :post = "post" @click="this.$router.push(`/apost/${post.id}`)"/>
+    <div id="button-container">
+      <button @click="addPost">Add post</button>
+      <button @click="deleteAll">Delete all</button>
     </div>
   </div>
 </template>
@@ -11,20 +15,37 @@
 // @ is an alias to /src
 import { mapActions } from 'vuex'
 import Post from "@/components/Post";
+import post from "@/components/Post.vue";
 
 export default {
   name: 'HomePage',
+  data() {
+    return {
+      posts: []
+    }
+  },
+
   components: {
     Post
   },
   computed: {
-    posts(){
-      return this.$store.getters.postIds;
-    }
   },
   methods: {
+    post() {
+      return post
+    },
     // map `this.resetLikes()` to `this.$store.dispatch('resetLikes')`
-    ...mapActions(['resetLikes'])
+    // ...mapActions(['resetLikes']),
+    logOut() {
+      fetch("http://localhost:3000/auth/logout")
+          .then(() => this.$router.push("/login"))
+    }
+  },
+  mounted() {
+    fetch("http://localhost:3000/data/posts")
+        .then(response => response.json())
+        .then(data => this.posts = data)
+        .catch(err => console.log(err.message));
   }
 }
 </script>

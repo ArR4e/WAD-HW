@@ -14,7 +14,7 @@
             <router-link to="/signup">Sign Up</router-link>
           </li>
           <li>
-            <router-link to="/contactus">Contact Us</router-link>
+            <router-link to="/contact">Contact Us</router-link>
           </li>
         </ul>
       </div>

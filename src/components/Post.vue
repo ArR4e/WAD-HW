@@ -1,8 +1,9 @@
 <template>
   <div class="post postNoImg">
-    <h1 class="postMsg" :class="post.postMsg.length > 90 ? 'long-post' : ''">{{ post.postMsg }}</h1>
+    <h1 class="postMsg" :class="post.body.length > 90 ? 'long-post' : ''">{{ post.body }}</h1>
     <h5 class="day">{{ String(day).padStart(2, '0') }}</h5>
     <h6 class="mon-year">{{ monthYear }}</h6>
+    <!--    <a :href="'/apost/' + post.id">Open</a>-->
   </div>
 </template>
 
@@ -25,17 +26,14 @@ const monthNames = {
 export default {
   name: "Post",
   props: {
-    postId: Number
+    post: Object
   },
   computed: {
-    post() {
-      return this.$store.getters.postById(this.postId);
-    },
     day() {
-      return this.post?.date?.split(".")[0]
+      return this.post?.date_created?.split("-")[2].split("T")[0];
     },
     monthYear() {
-      let [_, month, year] = this.post.date.split(".");
+      let [year, month, _] = this.post.date_created.split("-");
       return `${monthNames[month]}  ${year}`
     }
   },
@@ -65,7 +63,8 @@ export default {
   grid-template-columns: 1px repeat(7, 1fr) 1px;
   grid-gap: 1vw;
   background-color: var(--postc);
-  margin-top: calc(120px + 7vw);
+  /*margin-top: calc(120px + 7vw);*/
+  margin-bottom: 150px;
   box-shadow: 7px 7px 50px 0px rgba(0, 0, 0, .7);
   font-size: 0.9vw;
 }

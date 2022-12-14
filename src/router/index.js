@@ -12,7 +12,7 @@ const routes = [
     name: 'home',
     component: MainView,
     beforeEnter: async (to, from, next) => {
-      let authResult = true // false;// await auth.authenticated();
+      let authResult = true //await auth.authenticated();
       if (!authResult) {
         next("/login");
       } else {
@@ -40,7 +40,7 @@ const routes = [
     name: "APost",
     component: APost,
     beforeEnter: async (to, from, next) => {
-      let authResult = true // false;// await auth.authenticated();
+      let authResult = true//await auth.authenticated();
       if (!authResult) {
         next("/login");
       } else {
@@ -54,7 +54,7 @@ const routes = [
     name: "AddPost",
     component: AddPost,
     beforeEnter: async (to, from, next) => {
-      let authResult = true // false;// await auth.authenticated();
+      let authResult = await auth.authenticated();
       if (!authResult) {
         next("/login");
       } else {

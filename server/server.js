@@ -120,13 +120,13 @@ app.get('/data/posts', async (req, res) => {
     console.log('GET request for all posts has arrived');
     try {
         const posts = await pool.query("SELECT * FROM posts");
-        res.json(posts)
+        res.json(posts.rows)
     } catch (error) {
         res.status(401).json({error: error.message});
     }
 })
 
-app.delete('data/posts', async (req, res) => {
+app.delete('/data/posts', async (req, res) => {
     console.log('DELETE request for all posts has arrived');
     try {
         await pool.query("DELETE FROM posts")
@@ -136,7 +136,7 @@ app.delete('data/posts', async (req, res) => {
     }
 })
 
-app.post('data/posts', async (req, res) => {
+app.post('/data/posts', async (req, res) => {
     console.log('POST request to add a post has arrived');
     try {
         const post = req.body;
@@ -154,20 +154,28 @@ app.post('data/posts', async (req, res) => {
 })
 
 //Requests for a specific post
-app.get('data/posts/:id', async (req, res) => {
+app.get('/data/posts/:id', async (req, res) => {
     try {
         const {id} = req.params;
         console.log(`GET request for a post with id ${id} has arrived`);
-       const post = await pool.query(
-           "SELECT * FROM posts WHERE posts.id=$1", [id]
-       )
+        const post = await pool.query(
+            "SELECT * FROM posts WHERE posts.id=$1", [id]
+        )
+        res.json(post.rows[0])
     } catch (error) {
-        res.status(401).json({error: error.message});
+        res.status(404).json({error: error.message});
     }
 })
-app.put('data/posts/:id', async (req, res) => {
+app.put('/data/posts/:id', async (req, res) => {
     try {
         const {id} = req.params;
+        const {body} = req.body;
+        console.log(body);
+        const post = await pool.query(
+            "UPDATE posts SET body = $1 WHERE posts.id=$2 RETURNING*", [body, id]
+        )
+        console.log(post);
+        res.json(post.rows[0])
         console.log(`PUT request for a post with id ${id} has arrived`);
 
     } catch (error) {
@@ -175,7 +183,7 @@ app.put('data/posts/:id', async (req, res) => {
     }
 })
 
-app.delete('data/posts/:id', async (req, res) => {
+app.delete('/data/posts/:id', async (req, res) => {
     try {
         const {id} = req.params;
         console.log(`DELETE request for a post with id ${id} has arrived`);

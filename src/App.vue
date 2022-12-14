@@ -7,6 +7,7 @@
 </template>
 
 <style>
+
 #app {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -22,6 +23,7 @@
   /*--fooc: #545454;*/
   width: 100%;
   color: #2c3e50;
+  padding-top: 50px;
 }
 
 
