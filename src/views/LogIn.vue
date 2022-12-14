@@ -1,19 +1,13 @@
 <template>
   <div class="login">
     <div class="formArea">
-      <form id="validation">
-        <div class="errors" v-if="errors.length>0">
-          <b>Please correct the following error(s):</b>
-          <ul>
-            <li v-for="error in errors">{{ error }}</li>
-          </ul>
-        </div>
+      <form>
         <div class="form-field">
           <input type="email" v-model="email" name="" placeholder="&nbsp;" required>
           <label>Email</label>
         </div>
         <div class="form-field">
-          <input type="password" v-model="password" name="" placeholder="&nbsp;" required :class="errors.length?'invalid':''">
+          <input type="password" v-model="password" name="" placeholder="&nbsp;" required>
           <label>Password</label>
         </div>
         <div class="form-buttons">
@@ -34,14 +28,8 @@ export default {
   name: "LogInView",
   data() {
     return {
-      errors: [],
       email: null,
       password: null
-    }
-  },
-  watch: {
-    password() {
-      this.checkForm();
     }
   },
   methods: {
@@ -68,41 +56,6 @@ export default {
             console.log(e);
             console.log("error");
           });
-    },
-    checkForm: function () {
-      this.errors = [];
-
-      if (this.password.length < 8) {
-        this.errors.push('Password is too small!');
-      }
-
-      if (this.password.length > 15) {
-        this.errors.push('Password is too long!');
-      }
-
-      if (!/[A-Z]/.test(this.password)) {
-        this.errors.push('Password should include at least one uppercase alphabet character');
-      }
-
-      if (!/[a-z].*[a-z]/.test(this.password)) {
-        this.errors.push('Password should include at least two lowercase alphabet characters');
-      }
-
-      if (!/\d/.test(this.password)) {
-        this.errors.push('Password should include at least one numeric value');
-      }
-
-      if (!/[A-Z]/.test(this.password[0])) {
-        this.errors.push('Password should start with an uppercase alphabet')
-      }
-
-      if (!/_/.test(this.password)) {
-        this.errors.push('Password should include the character “_”')
-      }
-
-      if (!this.errors) {
-        return true;
-      }
     }
   }
 }
@@ -110,10 +63,6 @@ export default {
 
 <style scoped>
 
-.errors {
-  font-size: 12px;
-  margin-bottom: 3vh;
-}
 
 .errors li {
   color: #ff7d7d;

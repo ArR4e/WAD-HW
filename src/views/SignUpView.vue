@@ -13,7 +13,8 @@
           <label>Email</label>
         </div>
         <div class="form-field">
-          <input type="password" v-model="password" name="" placeholder="&nbsp;" required :class="errors.length?'invalid':''">
+          <input type="password" v-model="password" name="" placeholder="&nbsp;" required
+                 :class="errors.length?'invalid':''">
           <label>Password</label>
         </div>
         <div class="form-buttons" @click="signup()">
@@ -43,28 +44,30 @@ export default {
   },
   methods: {
     signup() {
-      let data = {
-        email: this.email,
-        password: this.password
-      };
-      // using Fetch - post method - send an HTTP post request to the specified URI with the defined body
-      fetch("http://localhost:3000/auth/signup", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        credentials: 'include', //  Don't forget to specify this if you need cookies
-        body: JSON.stringify(data),
-      })
-          .then((response) => response.json())
-          .then((data) => {
-            console.log(data);
-            this.$router.push("/");
-          })
-          .catch((e) => {
-            console.log(e);
-            console.log("error");
-          });
+      if (this.errors.length === 0) {
+        let data = {
+          email: this.email,
+          password: this.password
+        };
+        // using Fetch - post method - send an HTTP post request to the specified URI with the defined body
+        fetch("http://localhost:3000/auth/signup", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          credentials: 'include', //  Don't forget to specify this if you need cookies
+          body: JSON.stringify(data),
+        })
+            .then((response) => response.json())
+            .then((data) => {
+              console.log(data);
+              this.$router.push("/");
+            })
+            .catch((e) => {
+              console.log(e);
+              console.log("error");
+            });
+      }
     },
     checkForm: function () {
       this.errors = [];
@@ -144,7 +147,7 @@ export default {
   background: transparent;
 }
 
-.formArea .form-field input.invalid{
+.formArea .form-field input.invalid {
   border-bottom-color: #ff7d7d;
 }
 

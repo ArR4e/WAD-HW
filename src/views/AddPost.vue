@@ -15,7 +15,6 @@
 </template>
 
 <script>
-import {json} from "express";
 
 export default {
   name: "AddPost",
@@ -34,7 +33,8 @@ export default {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(this.post),
-      })
+      }).then(response => response.json())
+          .then(newPost => console.log(newPost))
           .then(() => {
             setTimeout(() => this.$router.push("/"), 200);
           })

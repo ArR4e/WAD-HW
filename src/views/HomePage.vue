@@ -12,8 +12,6 @@
 </template>
 
 <script>
-// @ is an alias to /src
-import { mapActions } from 'vuex'
 import Post from "@/components/Post";
 import post from "@/components/Post.vue";
 

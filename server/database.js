@@ -8,10 +8,11 @@ const pool = new Pool({
     port: "5432"
 });
 
-const execute = async(query) => {
+const execute = async(query1, query2) => {
     try {
         await pool.connect(); // create a connection
-        await pool.query(query); // executes a query
+        await pool.query(query1); // executes a query
+        await pool.query(query2); // executes a query
         return true;
     } catch (error) {
         console.error(error.stack);
@@ -41,15 +42,9 @@ const createTblQuery2 = `
     );`;
 
 
-execute(createTblQuery1).then(result => {
+execute(createTblQuery1, createTblQuery2).then(result => {
     if (result) {
-        console.log('Table "users" is created on-demand');
-    }
-});
-
-execute(createTblQuery1).then(result => {
-    if (result) {
-        console.log('Table "users" is created on-demand');
+        console.log('Tables "users" and "posts" are created on-demand');
     }
 });
 
