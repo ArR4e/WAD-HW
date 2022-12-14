@@ -140,15 +140,21 @@ app.delete('/data/posts', async (req, res) => {
 app.post('/data/posts', async (req, res) => {
     console.log('POST request to add a post has arrived');
     try {
-        const post = req.body;
+        const post = req.body
+        const date = Date.now()
+        console.log(date)
+        let date_ob = new Date(date);
+        const day = ("0" + date_ob.getDate()).slice(-2);
+        const month = ("0" + (date_ob.getMonth() + 1)).slice(-2);
+        const year = date_ob.getFullYear();
         const newpost = await pool.query(
             "INSERT INTO posts(body, date_created) VALUES ($1, $2) RETURNING*",
             [
                 post.body,
-                Date.now()
+                year+"-"+month+"-"+day
             ]
         );
-        res.json(newpost);
+        res.json(newpost.rows[0]);
     } catch (error) {
         res.status(401).json({error: error.message});
     }

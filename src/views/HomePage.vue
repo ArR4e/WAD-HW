@@ -12,6 +12,8 @@
 </template>
 
 <script>
+// @ is an alias to /src
+import { mapActions } from 'vuex'
 import Post from "@/components/Post";
 import post from "@/components/Post.vue";
 
@@ -40,6 +42,17 @@ export default {
     },
     addPost() {
       this.$router.push("/addpost");
+    },
+    deleteAll() {
+      fetch("http://localhost:3000/data/posts", {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+          .catch((e) => {
+            console.log(e);
+          });
     }
   },
   mounted() {
