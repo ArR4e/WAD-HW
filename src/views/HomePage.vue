@@ -39,6 +39,9 @@ export default {
     logOut() {
       fetch("http://localhost:3000/auth/logout")
           .then(() => this.$router.push("/login"))
+    },
+    addPost() {
+      this.$router.push("/addpost");
     }
   },
   mounted() {

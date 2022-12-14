@@ -1,33 +1,60 @@
 <template>
   <div class="addpost">
-   <div class="formArea">
-            <form action="index.html">
-                <div class="form-field">
-                    <textarea class="textarea" placeholder="&nbsp;" id="postbody"></textarea>
-                    <label>Post body</label>
-                </div>
-                <div class="form-buttons">
-                    <button type="submit">Create post</button>
-                </div>
-            </form>
+    <div class="formArea">
+      <form>
+        <div class="form-field">
+          <textarea class="textarea" placeholder="&nbsp;" id="postbody" v-model="post.body"></textarea>
+          <label>Post body</label>
         </div>
+        <div class="form-buttons">
+          <button type="submit">Create post</button>
+        </div>
+      </form>
+    </div>
   </div>
 </template>
 
 <script>
+import {json} from "express";
+
 export default {
-  name: "AddPost"
+  name: "AddPost",
+  data() {
+    return {
+      post: {
+        body: "",
+      }
+    }
+  },
+  methods: {
+    addPost() {
+      fetch("http://localhost:3000/data/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(this.post),
+      })
+          .then(() => {
+            setTimeout(() => this.$router.push("/"), 200);
+          })
+          .catch((e) => {
+            console.log(e);
+          });
+    }
+  }
 }
 </script>
 
 <style scoped>
 
-.addpost{
+.addpost {
   display: grid;
   place-items: center;
   height: 100vh;
 
 }
+
 .formArea {
   background: rgba(0, 0, 0, .5);
   box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
@@ -55,7 +82,7 @@ export default {
   resize: none;
 }
 
-.formArea .form-field textarea:placeholder-shown{
+.formArea .form-field textarea:placeholder-shown {
   height: 36px;
   margin-top: 0;
 }
@@ -71,20 +98,20 @@ export default {
   transition: .5s;
 }
 
-.formArea .form-field textarea:not(:placeholder-shown)~label,
-.formArea .form-field textarea:focus~label {
+.formArea .form-field textarea:not(:placeholder-shown) ~ label,
+.formArea .form-field textarea:focus ~ label {
   top: -20px;
   left: 0;
   color: #03e9f4;
   font-size: 12px;
 }
 
-.formArea form .form-field{
+.formArea form .form-field {
   display: flex;
   align-items: center;
 }
 
-.formArea form .form-field a, .formArea form .form-buttons button{
+.formArea form .form-field a, .formArea form .form-buttons button {
   position: relative;
   display: inline-block;
   padding: 10px 10px;
@@ -117,7 +144,7 @@ export default {
   0 0 100px #03e9f4;
 }
 
-.formArea form .form-buttons{
+.formArea form .form-buttons {
   display: flex;
   align-items: center;
   justify-content: center;
